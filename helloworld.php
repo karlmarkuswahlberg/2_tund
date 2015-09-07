@@ -1,5 +1,6 @@
 <?php
 
+//enne faili convertida UTF-8 vormingusse. encode.
 //muutujaid märgitakse $ märgiga.
 //tühikuid ei saa kasutada, alakriips, väiketähed. semikoolon lõpp.
 
