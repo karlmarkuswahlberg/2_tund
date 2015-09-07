@@ -33,3 +33,15 @@
 	}
 
 ?>
+
+<br>
+
+<?php
+
+for($i = 0; $i < $age; $i = $i + 1){
+	//see, mida korratakse
+	echo "palju".$i.", ";
+}
+echo "õnne";
+
+?>
