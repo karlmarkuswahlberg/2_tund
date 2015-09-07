@@ -12,6 +12,7 @@
 	//muutuja "email_error"
 	
 	$email_error = "";
+	$password_error ="";
 	
 	//kontrolli ainult siis kui kasutaja vajutab "Logi sisse" nuppu.
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -21,20 +22,21 @@
 		$email_error = "Sisesta e-mail";
 		
 		}
-	}
-	
-	$password_error ="";
-	
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		
-		//kontrollime kasutaja e-posti, et see poleks tühi.
+		//kontrollime kasutaja parooli, et see poleks tühi.
 		if(empty($_POST["password"])){
 		$password_error = "Sisesta parool!";
 		
+		}else{
+			//parool ei ole tühi, kontrollime parooli pikkust.
+			//strlen on string lenght
+			if(strlen($_POST["password"]) >= 8){
+				
+			}else{
+				$password_error ="Parool peab olema vähemalt 8 sümbolit pikk!";
+			}
+			
 		}
 	}
-
-	
 	
 ?>
 <html>
@@ -48,8 +50,8 @@
 		<!--selleks, et -->
 			<form action="user_form.php" method="post">
 			
-				<input name="email" type="email" placeholder="e-post"> <?php echo $email_error; ?> <br><br>
-				<input name="password" type="password" placeholder="parool"> <?php echo $password_error; ?><br><br>
+				<input name="email" type="email" placeholder="e-post">* <?php echo $email_error; ?> <br><br>
+				<input name="password" type="password" placeholder="parool">* <?php echo $password_error; ?><br><br>
 				<input type="submit" value="Logi sisse">
 			
 			</form>
