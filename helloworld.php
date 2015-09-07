@@ -45,3 +45,12 @@ for($i = 0; $i < $age; $i = $i + 1){
 echo "õnne";
 
 ?>
+
+<br>
+
+
+<?php
+
+echo date("l, j. F, Y");   
+
+?>
